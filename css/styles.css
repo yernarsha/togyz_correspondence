@@ -1,0 +1,12 @@
+h1, form, .center-img {
+    text-align: center;
+}
+
+.table {
+    margin: auto;
+    width: 50% !important;
+}
+
+body {
+    font-family: monospace;
+}
