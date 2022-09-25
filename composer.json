@@ -1,0 +1,5 @@
+{
+    "require": {
+        "p-chess/chess": "^0.3.1"
+    }
+}

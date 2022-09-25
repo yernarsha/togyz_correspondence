@@ -1,0 +1,71 @@
+{
+    "name": "p-chess/chess",
+    "type": "library",
+    "description": "A PHP chess library that is used for chess move generation/validation, piece placement/movement, and check/checkmate/stalemate detection",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ryan hs",
+            "email": "mr.ryansilalahi@gmail.com"
+        },
+        {
+            "name": "Arkadiusz Kondas",
+            "email": "arkadiusz.kondas@gmail.com"
+        },
+        {
+            "name": "Massimiliano Arione",
+            "email": "garakkio@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2 || ^8.0",
+        "ext-ctype": "*",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "imagine/imagine": "^1.2",
+        "johnkary/phpunit-speedtrap": "^4.0",
+        "phpbench/phpbench": "^1.0",
+        "phpstan/phpstan": "^1.5",
+        "phpunit/phpunit": "^8.5 || ^9.5"
+    },
+    "suggest": {
+        "imagine/imagine": "To generate board images."
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "PChess\\Chess\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PChess\\Chess\\Test\\": "tests/",
+            "PChess\\Chess\\Benchmark\\": "benchmarks/"
+        }
+    },
+    "minimum-stability": "stable",
+    "scripts": {
+        "benchmark": "./vendor/bin/phpbench run benchmarks/ --report=aggregate --retry-threshold=2",
+        "build": [
+            "@check-cs",
+            "@phpstan",
+            "@test"
+        ],
+        "build-ci": [
+          "@check-cs",
+          "@phpstan",
+          "@test-ci"
+        ],
+        "check-cs": "./vendor/bin/php-cs-fixer fix -v --dry-run",
+        "fix-cs": "./vendor/bin/php-cs-fixer fix -v",
+        "phpstan": "./vendor/bin/phpstan analyze",
+        "test": "./vendor/bin/phpunit",
+        "test-ci": "./vendor/bin/phpunit --coverage-clover 'clover.xml'"
+    }
+}

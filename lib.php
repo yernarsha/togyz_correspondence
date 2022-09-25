@@ -7,3 +7,10 @@ function getResult($res) {
 
     return '';
 }
+
+function normalize($s) {
+    $s = str_replace(PHP_EOL, '<br>', $s);
+    $s = str_replace(" ", "&nbsp;", $s);
+
+    return $s;
+}
